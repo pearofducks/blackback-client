@@ -28,8 +28,8 @@ if [ -d /usr/local/gorilla/ansible/bin/ansible ]; then
   if [ -e /Library/LaunchDaemons/com.gorilla.blackbackInstall.plist ]; then
     rm /Library/LaunchDaemons/com.gorilla.blackbackInstall.plist
   fi
-  if [ -e /usr/local/outset/everyboot-scripts/blackbackInstall.sh ]; then
-    rm /usr/local/outset/everyboot-scripts/blackbackInstall.sh
+  if [ -e /usr/local/outset/everyboot-scripts/blackbackInstall ]; then
+    rm /usr/local/outset/everyboot-scripts/blackbackInstall
   fi
   rm /usr/local/gorilla/blackbackInstall
 fi

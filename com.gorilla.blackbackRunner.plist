@@ -4,8 +4,6 @@
 <dict>
 	<key>Label</key>
 	<string>com.gorilla.blackbackRunner</string>
-	<key>OnDemand</key>
-	<true/>
 	<key>Program</key>
 	<string>/usr/local/gorilla/blackbackRunner</string>
 	<key>ProgramArguments</key>

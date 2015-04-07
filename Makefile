@@ -11,6 +11,8 @@ PAYLOAD=\
 
 pack-script:
 	@sudo mkdir -p ${WORK_D}/usr/local/gorilla
+	@sudo mkdir -p ${WORK_D}/etc/ansible/facts.d
+	@sudo ${CP} mac.fact ${WORK_D}/etc/ansible/facts.d/mac.fact
 	@sudo ${CP} blackbackInstall ${WORK_D}/usr/local/gorilla/blackbackInstall
 	@sudo chmod 700 ${WORK_D}/usr/local/gorilla/blackbackInstall
 	@sudo ${CP} blackbackRunner ${WORK_D}/usr/local/gorilla/blackbackRunner

@@ -10,10 +10,10 @@ do
   fi
 done
 
-/usr/local/gorilla/ansible/bin/ansible-pull \
+PATH=/usr/local/gorilla/ansible/bin:$PATH
+ansible-pull \
     --url=$1 \
     --inventory=localhost, \
-    --connection=local \
     --directory=/usr/local/gorilla/blackback
 
 exit 0
