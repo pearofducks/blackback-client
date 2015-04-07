@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#outset copy
+cat <<EOT >> /usr/local/outset/everyboot-scripts/blackbackInstall.sh
+#!/bin/sh
+/usr/local/gorilla/blackbackInstall
+EOT
+chmod +x /usr/local/outset/everyboot-scripts/blackbackInstall.sh
+nohup /usr/local/gorilla/blackbackInstall &
