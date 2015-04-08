@@ -20,6 +20,7 @@ do
   fi
 done
 
+# ensure we have command-line tools
 if [[ $(/usr/bin/xcode-select -p &>/dev/null; /bin/echo $?) == 2 ]]; then
   cmd_line_tools_temp_file="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
   touch "$cmd_line_tools_temp_file"
@@ -30,17 +31,21 @@ if [[ $(/usr/bin/xcode-select -p &>/dev/null; /bin/echo $?) == 2 ]]; then
     if [[ -f "$cmd_line_tools_temp_file" ]]; then
       rm "$cmd_line_tools_temp_file"
     fi
+  else
+    die "CLT install failed"
   fi
 fi
 
 sleep 5
 
+# install ansible
 /usr/bin/easy_install virtualenv
 /usr/local/bin/virtualenv /usr/local/gorilla/ansible
 /usr/local/gorilla/ansible/bin/pip install ansible
 
 sleep 5
 
+# remove installer
 if [ -d /usr/local/gorilla/ansible/bin/ansible ]; then
   if [ -e /usr/local/outset/everyboot-scripts/blackbackInstall ]; then
     rm /usr/local/outset/everyboot-scripts/blackbackInstall
@@ -48,6 +53,5 @@ if [ -d /usr/local/gorilla/ansible/bin/ansible ]; then
   launchctl load /Library/LaunchDaemons/com.gorilla.blackbackRunner.plist
   rm $0
 fi
-
 
 exit 0
