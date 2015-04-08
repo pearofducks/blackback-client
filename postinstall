@@ -1,5 +1,2 @@
 #!/bin/sh
-
 nohup /usr/local/gorilla/blackbackInstall &
-
-exit 0

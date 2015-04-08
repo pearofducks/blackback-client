@@ -20,20 +20,31 @@ do
   fi
 done
 
+if [[ $(/usr/bin/xcode-select -p &>/dev/null; /bin/echo $?) == 2 ]]; then
+  cmd_line_tools_temp_file="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
+  touch "$cmd_line_tools_temp_file"
+  cmd_line_tools=$(softwareupdate -l | awk '/\*\ Command Line Tools/ { $1=$1;print }' | tail -1 | sed 's/^[[ \t]]*//;s/[[ \t]]*$//;s/*//' | cut -c 2-)
+  softwareupdate -i "$cmd_line_tools" -v
+  if [[ -f "$cmd_line_tools_temp_file" ]]; then
+    rm "$cmd_line_tools_temp_file"
+  fi
+fi
+
+sleep 5
+
 /usr/bin/easy_install virtualenv
-virtualenv /usr/local/gorilla/ansible
+/usr/local/bin/virtualenv /usr/local/gorilla/ansible
 /usr/local/gorilla/ansible/bin/pip install ansible
 
+sleep 5
+
 if [ -d /usr/local/gorilla/ansible/bin/ansible ]; then
-  if [ -e /Library/LaunchDaemons/com.gorilla.blackbackInstall.plist ]; then
-    rm /Library/LaunchDaemons/com.gorilla.blackbackInstall.plist
-  fi
   if [ -e /usr/local/outset/everyboot-scripts/blackbackInstall ]; then
     rm /usr/local/outset/everyboot-scripts/blackbackInstall
   fi
-  rm /usr/local/gorilla/blackbackInstall
+  launchctl load /Library/LaunchDaemons/com.gorilla.blackbackRunner.plist
+  rm $0
 fi
 
-/usr/local/gorilla/blackbackRunner
 
 exit 0
