@@ -18,4 +18,9 @@ components
 
 - */Library/LaunchDaemons/***com.gorilla.blackbackRunner.plist:** runs `blackbackRunner` on reboot, and every 10 hours - or on first wake after this. This is also loaded immediately after install via postinstall.
 - */usr/local/gorilla/***blackbackRunner:** pulls the repo (specified as the first argument) and runs ansible using the local.yml file in the repo, it will test for connectivity (~50x with 10s sleep) before timing out
-- */usr/local/gorilla/***blackbackInstall:** installs virtualenv via easy_install, then creates a virtualenv with ansible installed at /usr/local/gorilla/ansible
+- */usr/local/gorilla/***blackbackInstall:**
+  - ensures that `git` is available, if it isn't then it automatically installs CommandLineTools
+  - installs virtualenv via easy_install
+  - creates a virtualenv at `/usr/local/gorilla/ansible`
+  - installs ansible into that virtualenv, ansible commands are found at `/usr/local/gorilla/ansible/bin`
+
