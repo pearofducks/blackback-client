@@ -11,6 +11,6 @@ if *luggage* is installed you can simply `make pkg` and the required components 
 components
 ----------
 
-- **blackbackInstall:** installs virtualenv, then creates a virtualenv with ansible installed at /usr/local/gorilla/ansible
-- **com.gorilla.blackbackRunner.plist:** runs `blackbackRunner` on every reboot, and every 10 hours - or on first wake after this
-- **blackbackRunner:** pulls the repo (specified as the first argument) and runs ansible using the local.yml file in the repo, it will test for connectivity (10x with 10s sleep) before timing out
+- **com.gorilla.blackbackRunner.plist:** runs `blackbackRunner` on reboot, and every 10 hours - or on first wake after this. This is also loaded immediately after install via postinstall.
+- **blackbackRunner:** pulls the repo (specified as the first argument) and runs ansible using the local.yml file in the repo, it will test for connectivity (~50x with 10s sleep) before timing out
+- **blackbackInstall:** installs virtualenv via easy_install, then creates a virtualenv with ansible installed at /usr/local/gorilla/ansible
