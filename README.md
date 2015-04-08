@@ -23,4 +23,7 @@ components
   - installs virtualenv via easy_install
   - creates a virtualenv at `/usr/local/gorilla/ansible`
   - installs ansible into that virtualenv, ansible commands are found at `/usr/local/gorilla/ansible/bin`
-
+- */etc/ansible/facts.d/***mac.fact:** provides additional Mac-specific facts that Ansible lacks.
+  - ansible_local.mac.serial: the Mac's serial number
+  - ansible_local.mac.uuid: the Mac's hardware UUID
+  - ansible_local.mac.consoleuser: the user currently logged into the GUI when Ansible is running
