@@ -5,7 +5,6 @@ function die() {
   exit 1
 }
 
-PATH=/usr/bin:/usr/local/bin:$PATH
 PYTHON="python"
 [[ ! -x "$PYTHON" ]] || die "no python"
 
@@ -36,22 +35,17 @@ if [[ $(/usr/bin/xcode-select -p &>/dev/null; /bin/echo $?) == 2 ]]; then
   fi
 fi
 
-sleep 5
-
 # install ansible
+echo "Installing virtualenv"
 /usr/bin/easy_install virtualenv
+echo "Setting up ansible-virtualenv"
 /usr/local/bin/virtualenv /usr/local/gorilla/ansible
+echo "Installing ansible"
 /usr/local/gorilla/ansible/bin/pip install ansible
 
-sleep 5
-
 # remove installer
-if [ -d /usr/local/gorilla/ansible/bin/ansible ]; then
-  if [ -e /usr/local/outset/everyboot-scripts/blackbackInstall ]; then
-    rm /usr/local/outset/everyboot-scripts/blackbackInstall
-  fi
-  launchctl load /Library/LaunchDaemons/com.gorilla.blackbackRunner.plist
-  rm $0
+if [ -e /usr/local/gorilla/ansible/bin/ansible ]; then
+  srm $0
 else
   die "bad Ansible install"
 fi

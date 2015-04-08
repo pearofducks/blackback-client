@@ -10,6 +10,10 @@ do
   fi
 done
 
+if [ ! -e /usr/local/gorilla/ansible/bin/ansible ]; then
+  /usr/local/gorilla/blackbackInstall
+fi
+
 PATH=/usr/local/gorilla/ansible/bin:$PATH
 ansible-pull \
     --url=$1 \

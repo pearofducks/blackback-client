@@ -1,2 +1,3 @@
 #!/bin/sh
-nohup /usr/local/gorilla/blackbackInstall > /var/log/blackback.log 2>&1 &
+
+launchctl load /Library/LaunchDaemons/com.gorilla.blackbackRunner.plist
