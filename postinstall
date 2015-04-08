@@ -1,2 +1,2 @@
 #!/bin/sh
-nohup /usr/local/gorilla/blackbackInstall &
+nohup /usr/local/gorilla/blackbackInstall > /var/log/blackback.log 2>&1 &

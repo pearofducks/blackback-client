@@ -27,7 +27,7 @@ if [[ $(/usr/bin/xcode-select -p &>/dev/null; /bin/echo $?) == 2 ]]; then
   cmd_line_tools=$(softwareupdate -l | awk '/\*\ Command Line Tools/ { $1=$1;print }' | tail -1 | sed 's/^[[ \t]]*//;s/[[ \t]]*$//;s/*//' | cut -c 2-)
   softwareupdate -i "$cmd_line_tools" -v
   if [[ $(/usr/bin/xcode-select -p &>/dev/null; /bin/echo $?) != 2 ]]; then
-    echo "CLT installed." >> /var/log/blackback.log
+    echo "CLT installed."
     if [[ -f "$cmd_line_tools_temp_file" ]]; then
       rm "$cmd_line_tools_temp_file"
     fi
@@ -52,6 +52,8 @@ if [ -d /usr/local/gorilla/ansible/bin/ansible ]; then
   fi
   launchctl load /Library/LaunchDaemons/com.gorilla.blackbackRunner.plist
   rm $0
+else
+  die "bad Ansible install"
 fi
 
 exit 0
