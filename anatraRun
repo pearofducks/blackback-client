@@ -15,14 +15,14 @@ do
   fi
 done
 
-if [ ! -e /usr/local/gorilla/ansible/bin/ansible ]; then
-  /usr/local/gorilla/blackbackInstall
+if [ ! -e /usr/local/chordata/ansible/bin/ansible ]; then
+  /usr/local/chordata/anatraSetup
 fi
 
-PATH=/usr/local/gorilla/ansible/bin:$PATH
+PATH=/usr/local/chordata/ansible/bin:$PATH
 ansible-pull \
     --url=$1 \
     --inventory=localhost, \
-    --directory=/usr/local/gorilla/blackback
+    --directory=/usr/local/chordata/anatra
 
 exit 0

@@ -25,12 +25,12 @@ fi
 echo "Installing virtualenv"
 /usr/bin/easy_install virtualenv
 echo "Setting up ansible-virtualenv"
-/usr/local/bin/virtualenv /usr/local/gorilla/ansible
+/usr/local/bin/virtualenv /usr/local/chordata/ansible
 echo "Installing ansible"
-/usr/local/gorilla/ansible/bin/pip install ansible
+/usr/local/chordata/ansible/bin/pip install ansible
 
 # remove installer
-if [ -e /usr/local/gorilla/ansible/bin/ansible ]; then
+if [ -e /usr/local/chordata/ansible/bin/ansible ]; then
   srm $0
 else
   die "bad Ansible install"

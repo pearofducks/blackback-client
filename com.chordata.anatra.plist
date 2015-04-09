@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.gorilla.blackbackRunner</string>
+	<string>com.chordata.anatra</string>
 	<key>Program</key>
-	<string>/usr/local/gorilla/blackbackRunner</string>
+	<string>/usr/local/chordata/anatraRun</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/gorilla/blackbackRunner</string>
-		<string>http://github.com/pearofducks/blackback</string>
+		<string>/usr/local/chordata/anatraRun</string>
+		<string>http://github.com/pearofducks/anatra-example-repo</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>StandardErrorPath</key>
-	<string>/var/log/blackback.log</string>
+	<string>/var/log/anatra.log</string>
 	<key>StandardOutPath</key>
-	<string>/var/log/blackback.log</string>
+	<string>/var/log/anatra.log</string>
 	<key>StartInterval</key>
 	<integer>18000</integer>
 </dict>
