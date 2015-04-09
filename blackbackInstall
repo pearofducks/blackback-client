@@ -5,20 +5,6 @@ function die() {
   exit 1
 }
 
-PYTHON="python"
-[[ ! -x "$PYTHON" ]] || die "no python"
-
-# wait for network
-for j in {1..250};
-do
-  if [ $(/sbin/ping -q -c 1 google.com &>/dev/null; echo $?) != 0 ]; then
-    if [ $j -gt 240 ]; then exit 1; fi # if this somehow takes longer than 20 minutes, get the hell out
-    sleep 5
-  else
-    break
-  fi
-done
-
 # ensure we have command-line tools
 if [[ $(/usr/bin/xcode-select -p &>/dev/null; /bin/echo $?) == 2 ]]; then
   cmd_line_tools_temp_file="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
