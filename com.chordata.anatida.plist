@@ -3,20 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.chordata.anatra</string>
+	<string>com.chordata.anatida</string>
 	<key>Program</key>
-	<string>/usr/local/chordata/anatraRun</string>
+	<string>/usr/local/chordata/anatidaRun</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/chordata/anatraRun</string>
-		<string>http://github.com/pearofducks/anatra-example-repo</string>
+		<string>/usr/local/chordata/anatidaRun</string>
+		<string>http://github.com/pearofducks/anatida-example-repo</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>StandardErrorPath</key>
-	<string>/var/log/anatra.log</string>
+	<string>/var/log/chordata/anatida.log</string>
 	<key>StandardOutPath</key>
-	<string>/var/log/anatra.log</string>
+	<string>/var/log/chordata/anatida.log</string>
 	<key>StartInterval</key>
 	<integer>18000</integer>
 </dict>

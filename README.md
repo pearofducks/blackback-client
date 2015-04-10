@@ -1,12 +1,12 @@
-anatra
+anatida
 ======
 
-anatra is a chordata component, it sets up [Ansible](http://www.ansible.com) to run at a specified interval (via ansible-pull) for setup/maintenance tasks
+anatida is a chordata component, it sets up [Ansible](http://www.ansible.com) to run at a specified interval (via ansible-pull) for setup/maintenance tasks
 
 setup
 -----
 
-fork this repo and change [this line](https://github.com/pearofducks/anatra/blob/master/com.chordata.anatraRun.plist#L12) to a git repo of your choosing that has ansible content (a local.yml file is required)
+fork this repo and change [this line](https://github.com/pearofducks/anatida/blob/master/com.chordata.anatida.plist#L12) to a git repo of your choosing that has ansible content (a local.yml file is required)
 
 installation
 ------------
@@ -16,9 +16,9 @@ if [the luggage](https://github.com/unixorn/luggage) is installed you can simply
 components
 ----------
 
-- */Library/LaunchDaemons/***com.chordata.anatra.plist:** runs `anatraRun` on reboot, and every 10 hours - or on first wake after this. This is also loaded immediately after install via postinstall.
-- */usr/local/chordata/***anatraRun:** pulls the repo (specified as the first argument) and runs ansible using the local.yml file in the repo, it will test for connectivity repeatedly before timing out
-- */usr/local/chordata/***anatraSetup:**
+- */Library/LaunchDaemons/***com.chordata.anatida.plist:** runs `anatidaRun` on reboot, and every 10 hours - or on first wake after this. This is also loaded immediately after install via postinstall.
+- */usr/local/chordata/***anatidaRun:** pulls the repo (specified as the first argument) and runs ansible using the local.yml file in the repo, it will test for connectivity repeatedly before timing out
+- */usr/local/chordata/***anatidaSetup:**
   - ensures that `git` is available, if it isn't then it automatically installs CommandLineTools
   - installs virtualenv via easy_install
   - creates a virtualenv at `/usr/local/chordata/ansible`

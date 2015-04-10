@@ -16,13 +16,13 @@ do
 done
 
 if [ ! -e /usr/local/chordata/ansible/bin/ansible ]; then
-  /usr/local/chordata/anatraSetup
+  /usr/local/chordata/anatidaSetup
 fi
 
 PATH=/usr/local/chordata/ansible/bin:$PATH
 ansible-pull \
     --url=$1 \
     --inventory=localhost, \
-    --directory=/usr/local/chordata/anatra
+    --directory=/usr/local/chordata/anatida
 
 exit 0
